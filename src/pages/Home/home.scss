@@ -1,0 +1,29 @@
+.home {
+  width: 100%;
+  padding-top: 5rem;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 2.4rem 0;
+
+  &__input {
+    width: 50rem;
+    height: 5rem;
+    outline: none;
+    border: 2px solid #b9b9b9;
+    border-radius: 1rem;
+    padding: 0.8rem;
+
+  }
+}
+
+.starting-text{
+  width: 100%;
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+}

@@ -1,0 +1,27 @@
+.history {
+  padding-top: 6rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+
+  &__item {
+    width: 39rem;
+    border-radius: 1.5rem;
+    border: 2px solid #FF2058;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: #333;
+  }
+}
+
+.not-found {
+  font-weight: 700;
+  font-size: 3rem;
+}

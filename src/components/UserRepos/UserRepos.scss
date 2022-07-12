@@ -1,0 +1,56 @@
+.user-repos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+
+  &__title {
+    width: 100%;
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 600;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__detail {
+
+    &__name {
+      font-weight: 500;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+
+      a, a:visited {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 2.5rem;
+        color: #dc3545;
+      }
+    }
+
+    &__desc {
+      font-weight: 400;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    &__stats {
+      font-weight: 400;
+      font-size: 1.5rem;
+
+      div {
+        padding: 0.8rem;
+        background-color: #ff768a;
+        margin-bottom: 0.5rem;
+        border-radius: 1.4rem;
+      }
+    }
+  }
+
+}

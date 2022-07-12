@@ -1,0 +1,70 @@
+.user-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  border: 2px solid #105099;
+  border-radius: 3rem;
+  padding: 1.5rem;
+  margin-bottom: 6rem;
+
+  &__image {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    img {
+      margin-bottom: 16px;
+      max-width: 25rem;
+      max-height: 100%;
+      border-radius: 2rem;
+    }
+
+    &__name {
+      font-size: 3rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    &__login {
+      font-size: 3rem;
+      font-weight: 400;
+      text-align: center;
+      color: #a8a8a8;
+    }
+  }
+
+  &__data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: 400;
+    font-size: 1.8rem;
+    gap: 1.5rem;
+
+    &__general {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+    }
+
+    span {
+      font-weight: 500;
+      font-size: 2.1rem;
+    }
+
+    &__follow-stats {
+      display: flex;
+      gap: 1.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .user-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+}
