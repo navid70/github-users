@@ -1,7 +1,20 @@
 import React from "react";
 import './UserInfo.scss';
 
-const UserInfo: React.FC<{ data: any }> = ({data}) => {
+interface userInfoProps {
+  data: {
+    avatar_url: string,
+    name: string,
+    login: string,
+    bio: string,
+    email: string,
+    blog: string,
+    following: number,
+    followers: number,
+  };
+}
+
+const UserInfo: React.FC<userInfoProps> = ({data}) => {
 
   return (
     <div className={'user-info'}>

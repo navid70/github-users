@@ -9,7 +9,16 @@ import {useSearchParams} from "react-router-dom";
 
 const Home = () => {
   const userName = useRef<HTMLInputElement>(null);
-  const [userDetail, setUserDetail] = useState({});
+  const [userDetail, setUserDetail] = useState({
+    avatar_url: '',
+    name: '',
+    login: '',
+    bio: '',
+    email: '',
+    blog: '',
+    following: 0,
+    followers: 0,
+  });
   const [userRepos, setUserRepos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [startingText, setStartingText] = useState('Enter UserName');
@@ -51,14 +60,14 @@ const Home = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const name = userName.current!.value;
-    getData(name)
+    getData(name);
   };
 
   useEffect(() => {
     if (searchParams.get('name')) {
-      getData(searchParams.get('name') || '')
+      getData(searchParams.get('name') || '');
     }
-  },[searchParams]);
+  }, [searchParams]);
 
   console.log(userDetail);
   return (
@@ -67,7 +76,7 @@ const Home = () => {
         <input ref={userName} type="text" placeholder="Search User ..."
                className={'form__input'} id="searchInput"
                name="searchInput"/>
-        <button type={'submit'} id="searchBtn" className={'form__submit'}/>
+        <button type={'submit'} id="searchBtn" className={'form__submit'}>search</button>
       </form>
 
       {loading ?

@@ -8,17 +8,17 @@ import {PATHS} from "./utils/routes/Routes";
 import History from "./pages/History";
 
 
-function App() {
+const App = () => {
 
   return (
     <HistoryContextProvider>
       <NavBar/>
       <Routes>
-          <Route path={PATHS.HOME} element={<Home/>} />
-          <Route path={PATHS.HISTORY} element={<History/>} />
+        <Route path={PATHS.HOME} element={<Home/>}/>
+        <Route path={PATHS.HISTORY} element={<History/>}/>
       </Routes>
     </HistoryContextProvider>
   );
-}
+};
 
 export default App;
