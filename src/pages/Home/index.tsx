@@ -27,17 +27,15 @@ const Home = () => {
 
   const getData = (name: string) => {
     setLoading(true);
-    historyCtx.activeSearch.set(name)
+    historyCtx.activeSearch.set(name);
     findUser(name).then(response => {
       if (response.message === "Not Found") {
         setStartingText('User Not found! try again...');
         return;
       }
 
-      if (Object.keys(response).length > 0) {
-        setUserDetail(response);
-        historyCtx.addHistory(name);
-      }
+      setUserDetail(response);
+      historyCtx.addHistory(name);
     })
       .catch(error => {
         console.log(error);
@@ -71,8 +69,8 @@ const Home = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    if (!searchParams.get('name') && historyCtx.activeSearch.get !== ''){
-      getData(historyCtx.activeSearch.get)
+    if (!searchParams.get('name') && historyCtx.activeSearch.get !== '') {
+      getData(historyCtx.activeSearch.get);
     }
   }, []);
 
@@ -87,7 +85,7 @@ const Home = () => {
 
       {loading ?
         <Loading/> :
-        Object.keys(userDetail).length > 0 ?
+        userDetail.login !== '' ?
           <>
             <UserInfo data={userDetail}/>
             <UserRepos data={userRepos}/>
