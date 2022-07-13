@@ -22,11 +22,12 @@ const Home = () => {
   const [userRepos, setUserRepos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [startingText, setStartingText] = useState('Enter UserName');
-  const context = useContext(HistoryContext);
+  const historyCtx = useContext(HistoryContext);
   const [searchParams] = useSearchParams();
 
   const getData = (name: string) => {
     setLoading(true);
+    historyCtx.activeSearch.set(name)
     findUser(name).then(response => {
       if (response.message === "Not Found") {
         setStartingText('User Not found! try again...');
@@ -35,7 +36,7 @@ const Home = () => {
 
       if (Object.keys(response).length > 0) {
         setUserDetail(response);
-        context.addHistory(name);
+        historyCtx.addHistory(name);
       }
     })
       .catch(error => {
@@ -68,6 +69,13 @@ const Home = () => {
       getData(searchParams.get('name') || '');
     }
   }, [searchParams]);
+
+  useEffect(() => {
+    if (!searchParams.get('name') && historyCtx.activeSearch.get !== ''){
+      getData(historyCtx.activeSearch.get)
+    }
+  }, []);
+
 
   console.log(userDetail);
   return (
