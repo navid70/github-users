@@ -76,8 +76,6 @@ const Home = () => {
     }
   }, []);
 
-
-  console.log(userDetail);
   return (
     <div className={'home'}>
       <form className={'form'} onSubmit={handleSubmit}>
