@@ -8,8 +8,8 @@ const History = () => {
 
   return (
     <div className={'history'}>
-      {historyCtx.items.length > 0 ? historyCtx.items.map(history => (
-          <Link to={`/?name=${history.name}`} className={'history__item'}>
+      {historyCtx.items.length > 0 ? historyCtx.items.map((history, index) => (
+          <Link key={index} to={`/?name=${history.name}`} className={'history__item'}>
             <div className="history__item__title">
               {history.name}
             </div>

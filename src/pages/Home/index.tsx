@@ -31,11 +31,12 @@ const Home = () => {
     findUser(name).then(response => {
       if (response.message === "Not Found") {
         setStartingText('User Not found! try again...');
-        return;
+        setUserDetail({avatar_url: '', name: '', login: '', bio: '', email: '', blog: '', following: 0, followers: 0});
+        historyCtx.activeSearch.set('');
+      } else {
+        setUserDetail(response);
+        historyCtx.addHistory(name);
       }
-
-      setUserDetail(response);
-      historyCtx.addHistory(name);
     })
       .catch(error => {
         console.log(error);
@@ -50,7 +51,6 @@ const Home = () => {
       }
     })
       .catch(error => {
-        console.log(error);
         setStartingText('User Not found! try again...');
       })
       .finally(() => setLoading(false));

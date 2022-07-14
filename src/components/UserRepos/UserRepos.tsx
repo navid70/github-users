@@ -19,8 +19,8 @@ const UserRepos: React.FC<{ data: repository[] }> = ({data}) => {
 
       <div className="user-repos__list">
         {data.length > 0 ?
-          data.map(repo => (
-            <div className={'user-repos__detail'}>
+          data.map((repo,index) => (
+            <div key={index} className={'user-repos__detail'}>
               <div className="user-repos__detail__name">
                 <a href={repo.html_url}>{repo.name}</a>
               </div>
